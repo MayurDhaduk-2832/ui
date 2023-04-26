@@ -16,9 +16,6 @@ class DBHelper {
     final db = await openDatabase(
       path,
       version: 2,
-      onConfigure: (db) {
-        
-      },
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -38,7 +35,6 @@ class DBHelper {
           )
           ''');
   }
-  
 
   Future<void> _onUpgrade(Database db, int oldV, int newV) async {
     if (newV > oldV) {
